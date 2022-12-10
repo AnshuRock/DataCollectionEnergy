@@ -70,6 +70,7 @@ public class SeleniumTest {
 		
 		driver.findElement(By.id("btn-review-cancel")).click();
 		
+		System.out.println("For testing pull command");
 		
 		
 	}

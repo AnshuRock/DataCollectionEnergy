@@ -69,7 +69,8 @@ public class SeleniumTest {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#btn-review-cancel")));
 		
 		driver.findElement(By.id("btn-review-cancel")).click();
-		
+
+
 		
 		
 	}

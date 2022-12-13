@@ -69,8 +69,13 @@ public class SeleniumTest {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#btn-review-cancel")));
 		
 		driver.findElement(By.id("btn-review-cancel")).click();
+<<<<<<< HEAD
 
 
+=======
+		
+		System.out.println("For testing pull command");
+>>>>>>> db37432eb499665a71aa874e32baff6ca4d3609e
 		
 		
 	}

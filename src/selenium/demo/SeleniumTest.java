@@ -1,8 +1,6 @@
 package selenium.demo;
 
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,7 +16,7 @@ public class SeleniumTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.setProperty("webdriver.edge.driver", "D:\\edgedriver_win64\\msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver", "D:\\BrowserDriver\\edgedriver_win64\\msedgedriver.exe");
 		
 		WebDriver driver = new EdgeDriver();
 		driver.get("https://test.esgconvene.com");

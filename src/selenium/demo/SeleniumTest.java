@@ -68,8 +68,13 @@ public class SeleniumTest {
 		
 		driver.findElement(By.id("btn-review-cancel")).click();
 
-
+		System.out.println("Testing sample1");
 		
+		System.out.println("Testing sample2");
+		
+		System.out.println("Testing sample3");
+		
+		System.out.println("Testing sample4");
 		
 	}
 	

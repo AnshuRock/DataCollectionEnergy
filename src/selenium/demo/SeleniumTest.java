@@ -1,9 +1,6 @@
 package selenium.demo;
 
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +15,7 @@ public class SeleniumTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.setProperty("webdriver.edge.driver", "D:\\edgedriver_win64\\msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver", "D:\\BrowserDriver\\edgedriver_win64\\msedgedriver.exe");
 		
 		WebDriver driver = new EdgeDriver();
 		driver.get("https://test.esgconvene.com");
@@ -69,14 +66,7 @@ public class SeleniumTest {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#btn-review-cancel")));
 		
 		driver.findElement(By.id("btn-review-cancel")).click();
-<<<<<<< HEAD
-
-
-=======
-		
-		System.out.println("For testing pull command");
->>>>>>> db37432eb499665a71aa874e32baff6ca4d3609e
-		
+			
 		
 	}
 	

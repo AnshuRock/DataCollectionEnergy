@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry excluding="src/selenium/demo/" kind="src" path=""/>
-	<classpathentry kind="src" path="src/selenium/demo"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>

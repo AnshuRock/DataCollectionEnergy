@@ -20,6 +20,7 @@ public class SeleniumTest {
 	
 	public static void main(String[] args) throws InterruptedException {
 
+
 		Validation validation = new Validation();
 		
 		// login
@@ -189,26 +190,34 @@ public class SeleniumTest {
 		
 		driver.manage().window().maximize();
 
+		System.setProperty("webdriver.edge.driver", "D:\\BrowserDriver\\edgedriver_win64\\msedgedriver.exe");
+
+		driver.get("https://test.esgconvene.com");
+
+		driver.manage().window().maximize();
+
 		driver.findElement(By.id("username")).sendKeys("test_cso");
 		driver.findElement(By.name("password")).sendKeys("P@ssw0rd");
 
 		driver.findElement(By.id("login-button")).click();
+
 	}
 	
 	public static void accessingEnergyDataCollect() {
 		
 		// Accessing data collection tab
 		driver.findElement(By.id("convene-data")).click();
-		
-		// Accessing Energy data collection 
-		wait.until(ExpectedConditions.visibilityOfElementLocated
-				(By.cssSelector(".dashboard-pages.hide-in-mobile div:nth-child(2)")));
+
+		// Accessing Energy data collection
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.cssSelector(".dashboard-pages.hide-in-mobile div:nth-child(2)")));
 		driver.findElement(By.cssSelector(".dashboard-pages.hide-in-mobile div:nth-child(2)")).click();
-		
+
 		// Accessing the new Energy data collection form
-		wait.until(ExpectedConditions.visibilityOfElementLocated
-				(By.cssSelector("#gridbox-Energy8V-content div button:nth-child(1)")));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.cssSelector("#gridbox-Energy8V-content div button:nth-child(1)")));
 		driver.findElement(By.cssSelector("#gridbox-Energy8V-content div button:nth-child(1)")).click();
+
 		
 	}
 	
@@ -220,7 +229,6 @@ public class SeleniumTest {
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.name("file")));
 		driver.findElement(By.name("file")).sendKeys("D:\\IntelliJ Notes\\Basic Project Structure.docx");
-		;
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='elx-button-holder']/span[2]")));
 		driver.findElement(By.xpath("//div[@class='elx-button-holder']/span[2]")).click();
@@ -230,6 +238,7 @@ public class SeleniumTest {
 				.getText();
 
 		Assert.assertEquals(countFile, "[1]");
+
 	}
 
 }

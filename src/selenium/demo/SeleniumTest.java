@@ -220,7 +220,7 @@ public class SeleniumTest {
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.name("file")));
 		driver.findElement(By.name("file")).sendKeys("D:\\IntelliJ Notes\\Basic Project Structure.docx");
-		;
+		
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='elx-button-holder']/span[2]")));
 		driver.findElement(By.xpath("//div[@class='elx-button-holder']/span[2]")).click();

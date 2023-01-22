@@ -26,12 +26,21 @@ public class SeleniumTest {
 		// login
         login();
 		
-        // accessing Energy Data Collection
+        // accessing Energy Data Collection and new energy data collection form
         accessingEnergyDataCollect();
 		
+        // test if location is empty
+        if (emptyScope()) {
+			System.out.println("Collabortor is not assigned to this topic");
+			
+			return;
+		}
+        
         // performing validation test case
        validation.reportingDateMessage(driver, wait);
         
+       movingToOtherTabPrompt();
+       
 		// choosing scope and a sub-location if any
 		scopeAndSubLocation();
 		
@@ -196,7 +205,7 @@ public class SeleniumTest {
 
 		driver.manage().window().maximize();
 
-		driver.findElement(By.id("username")).sendKeys("test_cso");
+		driver.findElement(By.id("username")).sendKeys("test_collab2");
 		driver.findElement(By.name("password")).sendKeys("P@ssw0rd");
 
 		driver.findElement(By.id("login-button")).click();
@@ -239,6 +248,33 @@ public class SeleniumTest {
 
 		Assert.assertEquals(countFile, "[1]");
 
+	}
+	
+	public static boolean emptyScope() {
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+				By.id("location")));
+		
+		WebElement ele = driver.findElement(By.id("location"));
+		
+		Select loc = new Select(ele);
+		
+		List <WebElement> locations = loc.getOptions();
+		
+		if (locations.size() == 1) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static void movingToOtherTabPrompt() throws InterruptedException {
+		
+		Thread.sleep(3000);		
+		driver.findElement(By.cssSelector("#convene-disclosures")).click();		
+		Thread.sleep(5000);	
+		System.out.println("Prompt message, to stay on the page or leave, is opened and closed by selenium");
+		driver.switchTo().alert().dismiss();		
 	}
 
 }

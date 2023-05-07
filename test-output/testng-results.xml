@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="5" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-25T22:33:37 IST" name="Suite" finished-at="2023-03-25T22:34:51 IST" duration-ms="73253">
+  <suite started-at="2023-05-07T20:00:07 IST" name="Suite" finished-at="2023-05-07T20:02:43 IST" duration-ms="156778">
     <groups>
-      <group name="Form submit">
-        <method signature="SubmitFormTest.submitForm()[pri:0, instance:selenium.Tests.SubmitFormTest@a38c7fe]" name="submitForm" class="selenium.Tests.SubmitFormTest"/>
-      </group> <!-- Form submit -->
+      <group name="annual Summary">
+        <method signature="SubmitFormTest.submitASForm(java.util.HashMap)[pri:0, instance:selenium.Tests.SubmitFormTest@d62fe5b]" name="submitASForm" class="selenium.Tests.SubmitFormTest"/>
+      </group> <!-- annual Summary -->
     </groups>
-    <test started-at="2023-03-25T22:33:37 IST" name="Test" finished-at="2023-03-25T22:34:51 IST" duration-ms="73253">
+    <test started-at="2023-05-07T20:00:07 IST" name="Test" finished-at="2023-05-07T20:02:43 IST" duration-ms="156778">
       <class name="selenium.Tests.SubmitFormTest">
-        <test-method signature="submitForm()[pri:0, instance:selenium.Tests.SubmitFormTest@a38c7fe]" started-at="2023-03-25T22:33:37 IST" name="submitForm" finished-at="2023-03-25T22:34:50 IST" duration-ms="73178" status="PASS">
+        <test-method signature="submitASForm(java.util.HashMap)[pri:0, instance:selenium.Tests.SubmitFormTest@d62fe5b]" started-at="2023-05-07T20:00:07 IST" name="submitASForm" data-provider="getData" finished-at="2023-05-07T20:01:23 IST" duration-ms="76320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{userName=test_cso, password=P@ssw0rd}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- submitForm -->
+        </test-method> <!-- submitASForm -->
+        <test-method signature="submitASForm(java.util.HashMap)[pri:0, instance:selenium.Tests.SubmitFormTest@d62fe5b]" started-at="2023-05-07T20:01:23 IST" name="submitASForm" data-provider="getData" finished-at="2023-05-07T20:02:04 IST" duration-ms="40484" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{userName=test.board, password=P@ssw0rd}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitASForm -->
+        <test-method signature="submitASForm(java.util.HashMap)[pri:0, instance:selenium.Tests.SubmitFormTest@d62fe5b]" started-at="2023-05-07T20:02:04 IST" name="submitASForm" data-provider="getData" finished-at="2023-05-07T20:02:43 IST" duration-ms="39794" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{userName=test.user, password=P@ssw0rd}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitASForm -->
       </class> <!-- selenium.Tests.SubmitFormTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

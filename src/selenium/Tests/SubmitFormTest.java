@@ -1,11 +1,16 @@
 package selenium.Tests;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import selenium.TestComponents.BaseTest;
+import selenium.pageobjects.AccessingAnnualSummaryForm;
 import selenium.pageobjects.AccessingDataCollectionForm;
+import selenium.pageobjects.AnnualSummaryForm;
 import selenium.pageobjects.DataCollectionForm;
 import selenium.pageobjects.LandingPage;
 import selenium.pageobjects.Validation;
@@ -13,11 +18,11 @@ import selenium.pageobjects.Validation;
 
 public class SubmitFormTest extends BaseTest {
 
-	@Test(groups= {"Form submit"})
-	public void submitForm() throws IOException, InterruptedException {
+	@Test(dataProvider= "getData")
+	public void submitForm(HashMap<String, String> input) throws IOException, InterruptedException {
 
 		LandingPage landingPage = launchApplication();
-		landingPage.loginApplication("test_collab2", "P@ssw0rd");
+		landingPage.loginApplication(input.get("userName"), input.get("password"));
 		
         // accessing Energy Data Collection and new energy data collection form
 		AccessingDataCollectionForm accessForm = new AccessingDataCollectionForm(driver);
@@ -77,33 +82,58 @@ public class SubmitFormTest extends BaseTest {
         validation.reportingDateMessage();
 	}
 	
-	@Test
-	public void bardManagementAccess() throws IOException, InterruptedException {
-
-		LandingPage landingPage = launchApplication();
-		landingPage.loginApplication("test_board", "P@ssw0rd");
+	@DataProvider
+	public Object[][] getData() throws IOException {
 		
-        // accessing Energy Data Collection and new energy data collection form
-		AccessingDataCollectionForm accessForm = new AccessingDataCollectionForm(driver);
-		
-        if (!accessForm.accessingEnergyDataCollect()) {
-        	return;
-        }
+		List<HashMap<String, String>> data = getJsonDataToMap(System.getProperty("user.dir") + "\\src\\selenium\\data\\Users.json");
+		return new Object[][] {{data.get(0)}, {data.get(1)}, {data.get(2)}};
 	}
 	
-	@Test
-	public void userAdminAccess() throws IOException, InterruptedException {
+	@Test(dataProvider= "getData", groups= {"annual Summary"})
+	public void submitASForm(HashMap<String, String> input) throws IOException, InterruptedException {
 
 		LandingPage landingPage = launchApplication();
-		landingPage.loginApplication("test_collabAP", "Test1234");
+		landingPage.loginApplication(input.get("userName"), input.get("password"));
 		
         // accessing Energy Data Collection and new energy data collection form
-		AccessingDataCollectionForm accessForm = new AccessingDataCollectionForm(driver);
+		AccessingAnnualSummaryForm accessForm = new AccessingAnnualSummaryForm(driver);
 		
-        if (!accessForm.accessingEnergyDataCollect()) {
+        if (!accessForm.accessingEnergyAS()) {
         	return;
         }
+		
+        AnnualSummaryForm form = new AnnualSummaryForm(driver);
+        
+        // test if location is empty
+        if (!form.selectScope()) {
+			System.out.println("Collabortor is not assigned to this topic");
+			return;
+		}
+        
+        form.writingSummary();
+		
+		// submitting the form
+		form.submittingForm();
+		
+		form.verifyLatestAS();
+		
 	}
+	
+	/*@DataProvider
+	public Object[][] getData() {
+           return new Object[][] {{"test_collab", "P@ssw0rd"}, {"test_cso", "P@ssw0rd"},
+               {"test.user", "P@ssw0rd"}, {"test.board", "P@ssw0rd"}};
+	} */
+	
+	/*
+	 HashMap<String, String> map = new HashMap<>();
+		map.put("userName", "test_cso");
+		map.put("password", "P@ssw0rd");
+		
+		HashMap<String, String> map1 = new HashMap<>();
+		map.put("userName", "test.board");
+		map.put("password", "P@ssw0rd");
+	 */
 //	public static void gasFuelOil() {
 //
 //		driver.findElement(By.id("elx-tabId-gas_fuel")).click();

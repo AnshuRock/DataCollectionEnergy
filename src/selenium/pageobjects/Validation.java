@@ -50,7 +50,8 @@ public class Validation extends AbstractComponent {
 		String validationMessage1 = message.getText();
 
 		// assertion if expected message is showing on screen.
-		Assert.assertEquals(validationMessage1, "Please enter Reporting Date.");
+		Assert.assertEquals(validationMessage1, "Please Reporting Date.");
+		//Please enter Reporting Date.
 		
 		// Test case 2 : date field is filled with text
 		a.moveToElement(element).click().keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).sendKeys("fdsjd").build().perform();

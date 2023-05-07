@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import selenium.AbstractComponent.AbstractComponent;
 
 public class AccessingDataCollectionForm extends AbstractComponent {
@@ -28,7 +26,7 @@ public class AccessingDataCollectionForm extends AbstractComponent {
 	@FindBy(css=".dashboard-pages.hide-in-mobile div:nth-child(2)")
 	WebElement energyTab;
 	
-	@FindBy(css="#gridbox-Energy8V-content div button:nth-child(1)[style='display: none;']")
+	@FindBy(xpath="//div[@id='gridbox-Energy8V-content']/div/button[1][@style='display:none;']") //#gridbox-Energy8V-content div button:nth-child(1)[style='display: none;']
 	WebElement energyFormInvisible;
 	
 	@FindBy(id="monthlyEnergyDataCollectionBtn")

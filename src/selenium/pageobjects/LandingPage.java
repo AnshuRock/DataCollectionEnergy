@@ -34,6 +34,7 @@ public class LandingPage extends AbstractComponent {
 	}
 	
 	public void goTo() {
-		driver.get("https://test.esgconvene.com");
+		driver.get("https://uat.esgconvene.com");
 	}
+
 }

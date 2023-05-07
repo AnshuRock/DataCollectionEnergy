@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import selenium.AbstractComponent.AbstractComponent;
 
@@ -64,7 +64,7 @@ public class DataCollectionForm extends AbstractComponent {
 	@FindBy(xpath="//div[@class='elx-button-holder']/span[2]")
 	WebElement fileSelected;
 	
-	@FindBy(xpath="//table[@id='electricityUpload']/tr/th[1]/span[2]")
+	@FindBy(xpath="//table[@id='heatingUpload']/tr/th[1]/span[2]")
 	WebElement countFile;
 	
 	@FindBy(id="btn-submit")
@@ -177,10 +177,8 @@ public class DataCollectionForm extends AbstractComponent {
 		fileSelected.click();
 		Thread.sleep(2000);
 		String count = countFile.getText();
-		
-		System.out.println(count);
 
-		//Assert.assertEquals(countFile, "[1]");
+		Assert.assertEquals(count, "[1]");
 
 	}
 	

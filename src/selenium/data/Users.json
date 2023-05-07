@@ -1,0 +1,15 @@
+[
+{
+  "userName" : "test_cso",
+  "password" : "P@ssw0rd"
+},
+{
+  "userName" : "test.board",
+  "password" : "P@ssw0rd"
+},
+
+{
+  "userName" : "test.user",
+  "password" : "P@ssw0rd"
+}
+]
